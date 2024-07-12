@@ -12,7 +12,7 @@ import {
   GET_CONTACTS,
 } from "../types";
 
-export default (state, action) => {
+const ContactReducer = (state, action) => {
   switch (action.type) {
     case GET_CONTACTS:
       return {
@@ -67,11 +67,11 @@ export default (state, action) => {
           return contact.name.match(regex) || contact.email.match(regex);
         }),
       };
-    case CLEAR_CONTACTS:
-      return {
-        ...state,
-        filtered: null,
-      };
+    // case CLEAR_CONTACTS:
+    //   return {
+    //     ...state,
+    //     filtered: null,
+    //   };
     case CONTACT_ERROR:
       return {
         ...state,
@@ -81,3 +81,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default ContactReducer;
